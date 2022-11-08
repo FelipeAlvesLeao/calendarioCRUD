@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Calendar from "./components/CalendarPage";
+import Formulario from "./components/formulario";
+import Lista from "./components/lista";
+import PopUp from "./components/PopUp";
+import { useState } from "react";
 function App() {
+  
+  const [btnPopup, setBtnPopup] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <Calendar> </Calendar>
+        <button className="btn-popup" onClick={() => setBtnPopup(true)}>Criar novo componente</button>
+        <PopUp click={btnPopup}>
+          <Formulario></Formulario>
+        </PopUp>
+        <Lista></Lista>
+      </div>
+    </>
   );
 }
 
